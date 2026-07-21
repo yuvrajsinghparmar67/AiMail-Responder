@@ -191,7 +191,9 @@ export default function DraftsPage() {
               key={draft.id}
               draft={draft}
               onToggleFavorite={toggleFavorite}
-              onSave={(id, title, content) => updateDraft(id, { title, content })}
+              onSave={async (id, title, content) => {
+  await updateDraft(id, { title, content });
+}}
               onDelete={handleDelete}
             />
           ))}
