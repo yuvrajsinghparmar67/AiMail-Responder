@@ -21,7 +21,9 @@ export function TemplateForm({
   onCancel: () => void;
 }) {
   const [name, setName] = useState(initial?.name ?? "");
-  const [category, setCategory] = useState(initial?.category ?? SUGGESTED_CATEGORIES[0]);
+  const [category, setCategory] = useState(
+  initial?.category ?? SUGGESTED_CATEGORIES[0] ?? ""
+);
   const [promptText, setPromptText] = useState(initial?.prompt_text ?? "");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
