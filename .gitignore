@@ -1,0 +1,33 @@
+# --- Environment -------------------------------------------------------
+.env
+.env.local
+.env.*.local
+
+# --- Backend (Python) ---------------------------------------------------
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+backend/data/
+*.db
+*.sqlite3
+
+# --- Frontend (Node/Next.js) ---------------------------------------------
+node_modules/
+.next/
+out/
+frontend/.next/
+frontend/node_modules/
+next-env.d.ts
+.turbo/
+
+# --- Editors / OS ---------------------------------------------------------
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# --- Logs --------------------------------------------------------------
+*.log
+npm-debug.log*

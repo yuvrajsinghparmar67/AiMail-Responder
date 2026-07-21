@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* --------------------------------------------------------------
+       Palette from the design brief, converted to HSL (shadcn/ui's
+       variable convention). Each line is annotated with its source hex
+       so the mapping stays traceable.
+       -------------------------------------------------------------- */
+    --background: 240 10% 4%;        /* #09090B */
+    --foreground: 210 20% 98%;       /* #F9FAFB — Text Primary */
+
+    --card: 215 28% 17%;             /* #1F2937 — Cards */
+    --card-foreground: 210 20% 98%;
+
+    --popover: 215 28% 17%;
+    --popover-foreground: 210 20% 98%;
+
+    --primary: 239 84% 67%;          /* #6366F1 — Primary (Indigo) */
+    --primary-hover: 244 75% 59%;    /* #4F46E5 — Primary Hover */
+    --primary-foreground: 210 20% 98%;
+
+    --secondary: 217 91% 60%;        /* #3B82F6 — Secondary (Blue) */
+    --secondary-foreground: 210 20% 98%;
+
+    --accent: 198 93% 60%;           /* #38BDF8 — Accent (Sky Blue) */
+    --accent-foreground: 240 10% 4%;
+
+    --muted: 221 39% 11%;            /* #111827 — Surface, used as muted bg */
+    --muted-foreground: 218 11% 65%; /* #9CA3AF — Muted Text */
+
+    --destructive: 0 84% 60%;        /* #EF4444 — Error */
+    --destructive-foreground: 210 20% 98%;
+
+    --success: 142 71% 45%;          /* #22C55E */
+    --warning: 38 92% 50%;           /* #F59E0B */
+
+    --border: 215 19% 27%;           /* #374151 */
+    --input: 215 19% 27%;
+    --ring: 239 84% 67%;             /* Primary, for focus rings */
+
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+@layer utilities {
+  /* Signature surface treatment: every elevated panel in the app (cards,
+     modals, the generator's reply pane) is built from this, not a flat
+     background — it's the one visual idea we reuse everywhere on purpose. */
+  .glass {
+    @apply bg-card/60 backdrop-blur-xl border border-border/60;
+  }
+  .glass-hover {
+    @apply transition-colors hover:bg-card/80 hover:border-border;
+  }
+  .text-gradient-brand {
+    @apply bg-gradient-brand bg-clip-text text-transparent;
+  }
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--border)) transparent;
+  }
+}
